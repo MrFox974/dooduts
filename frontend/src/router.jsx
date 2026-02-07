@@ -7,7 +7,6 @@ import GuestRoute from './components/GuestRoute';
 import IndexRedirect from './pages/IndexRedirect';
 import HomeSkeleton from './components/skeletons/HomeSkeleton';
 import AboutSkeleton from './components/skeletons/AboutSkeleton';
-import { homeLoader } from './loaders/home';
 import { aboutLoader } from './loaders/about';
 
 const Home = lazy(() => import('./pages/home/home'));
@@ -65,7 +64,6 @@ export const router = createBrowserRouter(
               <Home />
             </Suspense>
           }
-          loader={homeLoader}
         />
         <Route
           path="about"

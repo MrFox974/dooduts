@@ -64,7 +64,7 @@ connectToDB().catch(err => {
   console.error('Failed to connect to database:', err);
 });
 
-connectModels({ force: false }).catch(err => {
+connectModels({ force: true }).catch(err => {
   console.error('Failed to sync models:', err);
 });
 

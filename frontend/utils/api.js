@@ -64,6 +64,12 @@ api.interceptors.response.use(
       return Promise.reject(error);
     }
 
+    // Ne pas tenter le refresh sur login/register : 401 = mauvais identifiants
+    const isAuthRoute = config.url?.includes('/api/auth/login') || config.url?.includes('/api/auth/register');
+    if (isAuthRoute) {
+      return Promise.reject(error);
+    }
+
     // On a déjà essayé de refresh? Rejette et bye (évite boucle infinie)
     if (config._retry) {
       return Promise.reject(error);
@@ -96,6 +102,7 @@ api.interceptors.response.use(
     } catch (refreshError) {
       // Le refresh a échoué = on est vraiment déconnecté
       localStorage.removeItem('accessToken');
+      localStorage.removeItem('refreshToken');
       window.location.href = '/login';
       return Promise.reject(refreshError);
     }

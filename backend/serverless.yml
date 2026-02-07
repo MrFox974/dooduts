@@ -8,9 +8,9 @@ provider:
   environment:
     NODE_ENV: production
     DATABASE_NAME: postgres
-    DATABASE_USER: postgres
-    DATABASE_PASSWORD: )ltyBT|RPCFiaBf-L-2PsR#yIP8o
-    DATABASE_HOST: database-postgres.ctski2isu26z.eu-south-1.rds.amazonaws.com
+    DATABASE_USER: postgres.wvvawjjfpdgcdnmedboh
+    DATABASE_PASSWORD: "!+HipHop97424+!"
+    DATABASE_HOST: aws-1-eu-west-1.pooler.supabase.com
     DATABASE_PORT: 5432
     PROTOCOLE: https
     CORS_ORIGIN: https://main.d2foa299n6ioy9.amplifyapp.com

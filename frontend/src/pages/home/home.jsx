@@ -6,8 +6,8 @@ function Home() {
   const { tests } = useLoaderData();
 
   return (
-    <div className="p-8">
-      <h1 className="text-2xl font-bold mb-4">Table Test (IDs 1 à 10)</h1>
+    <div className="p-8 max-w-4xl mx-auto">
+      <h1 className="text-2xl font-semibold text-[var(--text-primary)] mb-6">Table Test (IDs 1 à 10)</h1>
       <Suspense fallback={<HomeSkeleton />}>
         <Await
           resolve={tests}
@@ -19,23 +19,23 @@ function Home() {
             resolvedTests.length === 0 ? (
               <p className="text-gray-500">Aucune donnée trouvée</p>
             ) : (
-              <div className="overflow-x-auto">
-                <table className="min-w-full bg-white border border-gray-300">
-                  <thead className="bg-gray-100">
+              <div className="overflow-x-auto rounded-lg border border-[var(--border)] bg-white">
+                <table className="min-w-full">
+                  <thead className="bg-[var(--bg-secondary)]">
                     <tr>
-                      <th className="px-4 py-2 border-b text-left">ID</th>
-                      <th className="px-4 py-2 border-b text-left">User ID</th>
-                      <th className="px-4 py-2 border-b text-left">Email</th>
-                      <th className="px-4 py-2 border-b text-left">Password</th>
+                      <th className="px-4 py-3 border-b border-[var(--border)] text-left text-sm font-medium text-[var(--text-primary)]">ID</th>
+                      <th className="px-4 py-3 border-b border-[var(--border)] text-left text-sm font-medium text-[var(--text-primary)]">User ID</th>
+                      <th className="px-4 py-3 border-b border-[var(--border)] text-left text-sm font-medium text-[var(--text-primary)]">Email</th>
+                      <th className="px-4 py-3 border-b border-[var(--border)] text-left text-sm font-medium text-[var(--text-primary)]">Password</th>
                     </tr>
                   </thead>
                   <tbody>
                     {resolvedTests.map((test) => (
-                      <tr key={test.id} className="hover:bg-gray-50">
-                        <td className="px-4 py-2 border-b">{test.id}</td>
-                        <td className="px-4 py-2 border-b">{test.name || test.user_id || '-'}</td>
-                        <td className="px-4 py-2 border-b">{test.email || '-'}</td>
-                        <td className="px-4 py-2 border-b">{test.password ? '***' : '-'}</td>
+                      <tr key={test.id} className="hover:bg-[var(--bg-secondary)]/50 transition-colors">
+                        <td className="px-4 py-3 border-b border-[var(--border)] text-[var(--text-primary)]">{test.id}</td>
+                        <td className="px-4 py-3 border-b border-[var(--border)] text-[var(--text-secondary)]">{test.name || test.user_id || '-'}</td>
+                        <td className="px-4 py-3 border-b border-[var(--border)] text-[var(--text-secondary)]">{test.email || '-'}</td>
+                        <td className="px-4 py-3 border-b border-[var(--border)] text-[var(--text-secondary)]">{test.password ? '***' : '-'}</td>
                       </tr>
                     ))}
                   </tbody>

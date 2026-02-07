@@ -73,19 +73,19 @@ api.interceptors.response.use(
     config._retry = true;
 
     try {
-      // Appelle le serveur pour un nouveau token
-      const refreshURL = `${baseURL}/refresh`;
+      const refreshURL = `${baseURL}/api/auth/refresh`;
+      const refreshToken = localStorage.getItem('refreshToken');
       const response = await axios.post(
         refreshURL,
-        {},
+        refreshToken ? { refreshToken } : {},
         { withCredentials: true }
       );
 
-      // Récupère le nouveau token
-      const { accessToken } = response.data;
-
-      // Le sauvegarde
+      const { accessToken, refreshToken: newRefreshToken } = response.data;
       localStorage.setItem('accessToken', accessToken);
+      if (newRefreshToken) {
+        localStorage.setItem('refreshToken', newRefreshToken);
+      }
 
       // Le met dans le header de la requête échouée
       config.headers.Authorization = `Bearer ${accessToken}`;
@@ -96,7 +96,7 @@ api.interceptors.response.use(
     } catch (refreshError) {
       // Le refresh a échoué = on est vraiment déconnecté
       localStorage.removeItem('accessToken');
-      window.location.href = '/connection';
+      window.location.href = '/login';
       return Promise.reject(refreshError);
     }
   }

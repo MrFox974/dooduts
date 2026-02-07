@@ -1,10 +1,11 @@
-require('dotenv').config()
+require('dotenv').config();
 
-// Trigger redeploy
-const express = require('express')
-const app = express()
-const { connectToDB, connectModels } = require('./config/database')
-const cors = require('cors')
+const express = require('express');
+const cookieParser = require('cookie-parser');
+const cors = require('cors');
+const { connectToDB, connectModels } = require('./config/database');
+
+const app = express();
 
 // Configuration CORS : accepte uniquement l'origine définie dans CORS_ORIGIN
 // Retire le slash final pour matcher l'en-tête Origin envoyé par le navigateur (sans slash)
@@ -30,12 +31,14 @@ app.use(cors({
 }));
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: false })); 
-// Ne pas toucher à extended: true, ça peut causer des problèmes avec les données de la BDD.
+app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
 
 require('./models/Test');
+require('./models/User');
 
-app.use('/api', require('./router/test.route'))
+app.use('/api', require('./router/test.route'));
+app.use('/api', require('./router/auth.route'));
 
 // Middleware de gestion d'erreur global
 app.use((err, req, res, next) => {

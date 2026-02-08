@@ -118,7 +118,7 @@ function Onboarding() {
                 {SUB_SLIDES.map((_, i) => (
                   <div
                     key={i}
-                    className="flex-1 h-1 rounded-full bg-slate-200 overflow-hidden"
+                    className="flex-1 h-1 rounded-full bg-[var(--progress-track)] overflow-hidden"
                   >
                     <div
                       className="h-full bg-[var(--accent)] rounded-full transition-all duration-75 ease-linear"
@@ -171,7 +171,7 @@ function Onboarding() {
             <div className="onboarding-canvas-overlay">
               <main className="flex-1 flex flex-col items-center justify-center px-6 py-8 min-h-0">
                 <div className="w-full max-w-xl">
-                  <div className="flex flex-col divide-y-2 divide-[var(--border)] rounded-xl bg-white/60 backdrop-blur-sm shadow-lg border border-[var(--border)] overflow-hidden">
+                  <div className="flex flex-col divide-y-2 divide-[var(--border)] rounded-xl bg-white/75 backdrop-blur-sm shadow-lg border border-[var(--border)] overflow-hidden">
                     <div className="flex flex-col items-center justify-center px-8 py-10">
                       <p className="text-lg text-[var(--text-primary)] font-medium text-center mb-6">
                         Pré-configuration de base pour découvrir l&apos;application

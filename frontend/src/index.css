@@ -1,15 +1,17 @@
 @import "tailwindcss";
 
-/* Thème studieux premium : bleus sobres, blanc cassé */
+/* Thème studieux premium : teal vivant, crème chaud, cohérence */
 :root {
-  --bg-primary: #faf9f7;
-  --bg-secondary: #f5f4f1;
-  --text-primary: #2c3e50;
-  --text-secondary: #5a6c7d;
-  --accent: #5b7c99;
-  --accent-hover: #4a6b88;
-  --accent-light: #8fa3b8;
-  --border: #e2e4e8;
+  --bg-primary: #faf9f6;
+  --bg-secondary: #f4f2ed;
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+  --accent: #0d9488;
+  --accent-hover: #0f766e;
+  --accent-light: #5eead4;
+  --accent-muted: #99f6e4;
+  --border: #e5e3de;
+  --progress-track: #e2e8e7;
 }
 
 /* Animations onboarding */
@@ -99,15 +101,15 @@
   z-index: 0;
 }
 
-/* Fond : scène visible, dégradé vers le haut (bleu doux → blanc cassé) */
+/* Fond : dégradé teal doux → crème chaud */
 .onboarding-bg-gradient {
   position: absolute;
   inset: 0;
   background: linear-gradient(
     0deg,
-    rgba(200, 215, 232, 1) 0%,
-    rgba(235, 240, 248, 1) 30%,
-    rgba(250, 250, 252, 1) 55%,
+    rgba(167, 243, 234, 0.5) 0%,
+    rgba(240, 253, 250, 0.8) 25%,
+    rgba(250, 250, 248, 1) 50%,
     rgba(255, 255, 255, 1) 100%
   );
 }
@@ -117,10 +119,10 @@
   inset: 0;
   background: linear-gradient(
     135deg,
-    rgba(91, 124, 153, 0.02) 0%,
-    rgba(143, 163, 184, 0.03) 40%,
+    rgba(13, 148, 136, 0.04) 0%,
+    rgba(94, 234, 212, 0.06) 40%,
     transparent 70%,
-    rgba(91, 124, 153, 0.03) 100%
+    rgba(13, 148, 136, 0.03) 100%
   );
 }
 
@@ -154,7 +156,7 @@
 .onboarding-orb-3 {
   width: 60px;
   height: 60px;
-  background: var(--accent);
+  background: var(--accent-muted);
   bottom: 20%;
   left: 15%;
   animation-delay: -4s;
@@ -162,10 +164,10 @@
 }
 
 @keyframes orb-float {
-  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.15; }
-  25% { transform: translate(15px, -10px) scale(1.05); opacity: 0.2; }
-  50% { transform: translate(-10px, 15px) scale(0.95); opacity: 0.12; }
-  75% { transform: translate(-5px, -5px) scale(1.02); opacity: 0.18; }
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.2; }
+  25% { transform: translate(15px, -10px) scale(1.05); opacity: 0.28; }
+  50% { transform: translate(-10px, 15px) scale(0.95); opacity: 0.15; }
+  75% { transform: translate(-5px, -5px) scale(1.02); opacity: 0.24; }
 }
 
 /* Particules : 1 temps (centre → position finale), puis léger mouvement sur place */
@@ -254,7 +256,7 @@
   left: 0;
   right: 0;
   height: 150px;
-  opacity: 0.08;
+  opacity: 0.12;
 }
 
 .onboarding-curve-path {

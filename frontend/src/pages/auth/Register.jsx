@@ -53,7 +53,7 @@ function Register() {
 
         <form onSubmit={handleSubmit} className="space-y-5">
           {error && (
-            <div className="p-3 rounded-lg bg-amber-50 border border-amber-200 text-amber-700 text-sm">
+            <div className="p-3 rounded-lg bg-amber-50/80 border border-amber-300 text-amber-800 text-sm">
               {error}
             </div>
           )}
@@ -70,7 +70,7 @@ function Register() {
               required
               minLength={3}
               autoComplete="username"
-              className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/40 focus:border-[var(--accent)] placeholder:text-slate-400 text-slate-800"
+              className="w-full px-4 py-3 rounded-lg border border-[var(--border)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/40 focus:border-[var(--accent)] placeholder:text-[var(--text-secondary)]/60 text-[var(--text-primary)]"
             />
           </div>
           <div>
@@ -85,7 +85,7 @@ function Register() {
               placeholder="vous@exemple.com"
               required
               autoComplete="email"
-              className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/40 focus:border-[var(--accent)] placeholder:text-slate-400 text-slate-800"
+              className="w-full px-4 py-3 rounded-lg border border-[var(--border)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/40 focus:border-[var(--accent)] placeholder:text-[var(--text-secondary)]/60 text-[var(--text-primary)]"
             />
           </div>
 

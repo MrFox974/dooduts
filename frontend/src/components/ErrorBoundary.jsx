@@ -107,7 +107,7 @@ function ErrorBoundary() {
         {/* Bouton pour retourner à l'accueil */}
         <Link
           to="/home"
-          className="inline-block mt-6 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+          className="inline-block mt-6 px-6 py-3 bg-[var(--accent)] text-white rounded-lg hover:bg-[var(--accent-hover)] transition-colors"
         >
           Retour à l'accueil
         </Link>

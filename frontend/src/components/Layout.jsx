@@ -23,7 +23,7 @@ function Layout() {
 
   return (
     <div className="min-h-screen flex flex-col bg-[var(--bg-primary)]">
-      <header className="bg-white/80 backdrop-blur-sm border-b border-[var(--border)] px-4 py-3">
+      <header className="bg-white/90 backdrop-blur-sm border-b border-[var(--border)] px-4 py-3 shadow-sm">
         <nav className="container mx-auto flex items-center justify-between">
           <div className="flex gap-1">
             <Link

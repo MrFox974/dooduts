@@ -28,16 +28,16 @@ function PasswordInput({
           placeholder={placeholder}
           disabled={disabled}
           className={`w-full px-4 py-3 pr-12 rounded-lg border transition-colors
-            ${error ? 'border-amber-400 bg-amber-50/30' : 'border-slate-200'}
+            ${error ? 'border-amber-400 bg-amber-50/30' : 'border-[var(--border)]'}
             focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/40 focus:border-[var(--accent)]
-            placeholder:text-slate-400 text-slate-800
-            disabled:bg-slate-100 disabled:cursor-not-allowed`}
+            placeholder:text-[var(--text-secondary)]/60 text-[var(--text-primary)]
+            disabled:bg-[var(--bg-secondary)] disabled:cursor-not-allowed`}
           autoComplete={showValidation ? 'new-password' : 'current-password'}
         />
         <button
           type="button"
           onClick={handleToggleVisibility}
-          className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 transition-colors p-1"
+          className="absolute right-3 top-1/2 -translate-y-1/2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors p-1"
           aria-label={showPassword ? 'Masquer le mot de passe' : 'Afficher le mot de passe'}
         >
           {showPassword ? (
@@ -61,7 +61,7 @@ function PasswordInput({
               <li
                 key={rule.label}
                 className={`flex items-center gap-2 transition-colors ${
-                  valid ? 'text-emerald-600' : 'text-slate-400'
+                  valid ? 'text-[var(--accent)]' : 'text-[var(--text-secondary)]'
                 }`}
               >
                 <span className="relative w-3 h-3 shrink-0 flex items-center justify-center">
@@ -84,7 +84,7 @@ function PasswordInput({
                       />
                     </svg>
                   ) : (
-                    <span className="w-2.5 h-2.5 rounded-full border border-slate-300 block" />
+                    <span className="w-2.5 h-2.5 rounded-full border border-[var(--border)] block" />
                   )}
                 </span>
                 {rule.label}

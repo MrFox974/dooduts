@@ -31,17 +31,19 @@ const connectToDB = async () => {
     console.log('Connexion établie avec succés.');
   } catch (error) {
     console.error('Impossible de se connecter à la base de données:', error);
+    throw error;
   }
 };
 
 const connectModels = async (force) => {
-    try{
-        await sequelize.sync(force);
-        console.log('All models were synchronized successfully.');
-    }catch(error){
-        console.error('Impossible de synchroniser les models :', error);
-    }
-}
+  try {
+    await sequelize.sync(force);
+    console.log('All models were synchronized successfully.');
+  } catch (error) {
+    console.error('Impossible de synchroniser les models :', error);
+    throw error;
+  }
+};
 
 
 

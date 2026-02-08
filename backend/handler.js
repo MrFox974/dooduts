@@ -8,6 +8,7 @@ const handler = serverless(app, {
 
 module.exports.handler = async (event, context) => {
   try {
+    await app.dbReadyPromise;
     const result = await handler(event, context);
     return result;
   } catch (error) {

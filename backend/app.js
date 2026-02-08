@@ -59,13 +59,16 @@ app.use((err, req, res, next) => {
   });
 });
 
-// Initialise la connexion DB (non-bloquant pour Lambda)
-connectToDB().catch(err => {
-  console.error('Failed to connect to database:', err);
-});
+// Promesse partagée : résout quand la DB est prête (pour Lambda cold start)
+const dbReadyPromise = (async () => {
+  try {
+    await connectToDB();
+    await connectModels({ force: false });
+  } catch (err) {
+    console.error('Failed to init database:', err);
+    throw err;
+  }
+})();
 
-connectModels({ force: false }).catch(err => {
-  console.error('Failed to sync models:', err);
-});
-
-module.exports = app
+module.exports = app;
+module.exports.dbReadyPromise = dbReadyPromise;

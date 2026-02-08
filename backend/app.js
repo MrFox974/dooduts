@@ -59,12 +59,12 @@ app.use((err, req, res, next) => {
   });
 });
 
-// Initialise la connexion DB (non-bloquant pour Lambda) test
+// Initialise la connexion DB (non-bloquant pour Lambda)
 connectToDB().catch(err => {
   console.error('Failed to connect to database:', err);
 });
 
-connectModels({ force: true }).catch(err => {
+connectModels({ force: false }).catch(err => {
   console.error('Failed to sync models:', err);
 });
 
